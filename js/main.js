@@ -317,7 +317,7 @@ const finishDistance = vh - 100;
 
       
       // 1. Считаем текущий масштаб
-      const currentScale = 1 + (0.3 - 1) * progress;
+      const currentScale = 1 + (0.25 - 1) * progress;
       
       // 2. ПОПРАВКА НА РАЗМЕР: 
       // Получаем реальные размеры вьюпорта в пикселях и умножаем на масштаб
