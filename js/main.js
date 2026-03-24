@@ -1,6 +1,7 @@
-// Фиксируем высоту ОДИН раз при загрузке, игнорируя прыжки адресной строки
-const staticHeight = window.innerHeight;
-const staticWidth = window.innerWidth;const slider = document.getElementById('mainSlider');
+const initialHeight = window.innerHeight;
+const initialWidth = window.innerWidth;
+
+const slider = document.getElementById('mainSlider');
 
 const slides = document.querySelectorAll('.slide');
 let currentIdx = 0;
@@ -145,9 +146,9 @@ let lastScrollY = 0; // Добавь эту переменную в начало
 
 function updateLogoAnimation() {
   currentScroll += (targetScroll - currentScroll) * ease;
-  const vh = window.innerHeight;
+  const vh = initialHeight;
   const progressBar = document.getElementById('progressBar');
-  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const totalHeight = document.documentElement.scrollHeight - initialHeight;
   const totalProgress = currentScroll / totalHeight;
   // --- УПРАВЛЕНИЕ ХЕДЕРОМ ---
 const header = document.querySelector('.main-header');
@@ -332,8 +333,8 @@ const finalTargetX = targetX + halfSize;
 // По Y: Просто твой отступ (привязка к ЦЕНТРУ)
 const finalTargetY = targetY + halfH;
 
-const moveX = (finalTargetX - staticWidth / 2) * progress;
-const moveY = (finalTargetY - staticHeight / 2) * progress;;
+const moveX = (finalTargetX - initialWidth / 2) * progress;
+const moveY = (finalTargetY - initialHeight / 2) * progress;;
 
       
       // ПРИМЕНЯЕМ ТРАНСФОРМАЦИЮ
