@@ -1,4 +1,7 @@
-const slider = document.getElementById('mainSlider');
+// Фиксируем высоту ОДИН раз при загрузке, игнорируя прыжки адресной строки
+const staticHeight = window.innerHeight;
+const staticWidth = window.innerWidth;const slider = document.getElementById('mainSlider');
+
 const slides = document.querySelectorAll('.slide');
 let currentIdx = 0;
 let isMoving = false;
@@ -329,8 +332,8 @@ const finalTargetX = targetX + halfSize;
 // По Y: Просто твой отступ (привязка к ЦЕНТРУ)
 const finalTargetY = targetY + halfH;
 
-const moveX = (finalTargetX - vw / 2) * progress;
-const moveY = (finalTargetY - vh / 2) * progress;
+const moveX = (finalTargetX - staticWidth / 2) * progress;
+const moveY = (finalTargetY - staticHeight / 2) * progress;;
 
       
       // ПРИМЕНЯЕМ ТРАНСФОРМАЦИЮ
