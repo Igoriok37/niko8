@@ -1,8 +1,4 @@
-const initialHeight = window.innerHeight;
-const initialWidth = window.innerWidth;
-
 const slider = document.getElementById('mainSlider');
-
 const slides = document.querySelectorAll('.slide');
 let currentIdx = 0;
 let isMoving = false;
@@ -146,9 +142,9 @@ let lastScrollY = 0; // Добавь эту переменную в начало
 
 function updateLogoAnimation() {
   currentScroll += (targetScroll - currentScroll) * ease;
-  const vh = initialHeight;
+  const vh = window.innerHeight;
   const progressBar = document.getElementById('progressBar');
-  const totalHeight = document.documentElement.scrollHeight - initialHeight;
+  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
   const totalProgress = currentScroll / totalHeight;
   // --- УПРАВЛЕНИЕ ХЕДЕРОМ ---
 const header = document.querySelector('.main-header');
@@ -326,21 +322,19 @@ const finishDistance = vh - 100;
       // 2. ПОПРАВКА НА РАЗМЕР: 
       // Получаем реальные размеры вьюпорта в пикселях и умножаем на масштаб
       const halfSize = (currentBaseSize * currentScale) / 2;
-      
+      const halfH = (currentBaseSize * currentScale) / 2;
       
       // По X: Отступ + половина (привязка к КРАЮ)
 const finalTargetX = targetX + halfSize; 
 // По Y: Просто твой отступ (привязка к ЦЕНТРУ)
 const finalTargetY = targetY + halfH;
 
-const moveX = (finalTargetX - initialWidth / 2) * progress;
-const moveY = (finalTargetY - initialHeight / 2) * progress;;
+const moveX = (finalTargetX - vw / 2) * progress;
+const moveY = (finalTargetY - vh / 2) * progress;
 
       
       // ПРИМЕНЯЕМ ТРАНСФОРМАЦИЮ
-     // Вместо calc внутри одной скобки, используем два последовательных смещения
-viewport.style.transform = `translate(-50%, -50%) translate3d(${Math.round(moveX)}px, ${Math.round(moveY)}px, 0) scale(${currentScale})`;
-
+      viewport.style.transform = `translate3d(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px), 0) scale(${currentScale})`;
       
 
 
