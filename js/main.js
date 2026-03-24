@@ -326,12 +326,12 @@ const finishDistance = vh - 100;
       // 2. ПОПРАВКА НА РАЗМЕР: 
       // Получаем реальные размеры вьюпорта в пикселях и умножаем на масштаб
       const halfSize = (currentBaseSize * currentScale) / 2;
-      const halfH = (currentBaseSize * currentScale) / 2;
+      
       
       // По X: Отступ + половина (привязка к КРАЮ)
 const finalTargetX = targetX + halfSize; 
 // По Y: Просто твой отступ (привязка к ЦЕНТРУ)
-const finalTargetY = targetY + halfH;
+const finalTargetY = targetY; 
 
 const moveX = (finalTargetX - initialWidth / 2) * progress;
 const moveY = (finalTargetY - initialHeight / 2) * progress;;
