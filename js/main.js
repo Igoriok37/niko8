@@ -331,7 +331,7 @@ const finishDistance = vh - 100;
       // По X: Отступ + половина (привязка к КРАЮ)
 const finalTargetX = targetX + halfSize; 
 // По Y: Просто твой отступ (привязка к ЦЕНТРУ)
-const finalTargetY = targetY; 
+const finalTargetY = targetY + halfH;
 
 const moveX = (finalTargetX - initialWidth / 2) * progress;
 const moveY = (finalTargetY - initialHeight / 2) * progress;;
