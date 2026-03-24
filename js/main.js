@@ -338,7 +338,9 @@ const moveY = (finalTargetY - initialHeight / 2) * progress;;
 
       
       // ПРИМЕНЯЕМ ТРАНСФОРМАЦИЮ
-      viewport.style.transform = `translate3d(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px), 0) scale(${currentScale})`;
+     // Вместо calc внутри одной скобки, используем два последовательных смещения
+viewport.style.transform = `translate(-50%, -50%) translate3d(${Math.round(moveX)}px, ${Math.round(moveY)}px, 0) scale(${currentScale})`;
+
       
 
 
