@@ -603,8 +603,9 @@ body.header-dark .side-image svg {
 
 .logo-box {
   position: fixed;
-  top: calc(50% - 15vmin);
-  left: calc(50% - 15vmin);
+    top: 50%;
+    left: 50%;
+  transform: translate(-50%, -50%);
   width: 30vmin;
   height: 30vmin;
   transform-style: preserve-3d;
